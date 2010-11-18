@@ -33,11 +33,11 @@
 (defn -post-init
   "Adds :stack-trace to the condition. Drops the bottom 3 frames because
   they are always the same: implementation details of Condition and raise."
-  [this condition]
+  [^clojure.contrib.condition.Condition this condition]
   (swap! (.state this) assoc
          :stack-trace (into-array (drop 3 (.getStackTrace this)))))
 
 (defn -meta
   "Returns this object's metadata, the condition"
-  [this]
+  [^clojure.contrib.condition.Condition this]
   @(.state this))

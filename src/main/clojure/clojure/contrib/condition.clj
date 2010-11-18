@@ -120,7 +120,7 @@ http://groups.google.com/group/clojure/browse_frm/thread/da1285c538f22bb5"}
   (stack-trace-info (meta condition)))
 
 (defmethod stack-trace-info Throwable
-  [throwable]
+  [^Throwable throwable]
   [(str throwable)
    (.getStackTrace throwable)
    (.getCause throwable)])
